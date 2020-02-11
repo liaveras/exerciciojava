@@ -4,15 +4,20 @@ public class BancoMain {
 
 	public static void main(String[] args) {
 		
-		Conta c1 = new Conta("1111", 100, "Lia Veras");
-		Conta c2 = new Conta("2222", 0, "Rita Veras");
+		Cliente cl1 = new Cliente ("Lia Veras", "111.111.111-11");
+		Conta c1 = new Conta("123", cl1);
+		
+		Cliente cl2 = new Cliente ("Rita Veras", "222.222.222-22");
+		Conta c2 = new Conta("456", 0, cl2);
+		
+		
 		
 		System.out.println("Conta: " + c1.getNumero() + " Saldo: " + c1.getSaldo());
 		System.out.println("Conta: " + c2.getNumero() + " Saldo: " + c2.getSaldo());
 		System.out.println("-----------------------------------------------------");
 		
-		c1.creditar(550.3f);
-		c2.creditar(350.9f);
+		c1.creditar(550.3);
+		c2.creditar(350.9);
 		
 		System.out.println("-----------------------------------------------------");
 		System.out.println("Conta: " + c1.getNumero() + " Saldo: " + c1.getSaldo());

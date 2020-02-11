@@ -3,26 +3,26 @@ package banco;
 public class Conta {
 	
 	private String numero;
-	private float saldo;
-	private  String nome;
+	private double saldo;
+	private  Cliente cliente;
 	
-	public Conta(String numero, String nome) {
+	public Conta(String numero, Cliente cliente) {
 		this.numero = numero;
-		this.nome = nome;
+		this.cliente = cliente;
 	}
 	
-	public Conta(String numero, float saldo, String nome) {
+	public Conta(String numero, double saldo, Cliente cliente) {
 		this.numero = numero;
 		this.saldo = saldo;
-		this.nome = nome;
+		this.cliente = cliente;
 	}
 	
-	public void creditar(float valor) {
+	public void creditar(double valor) {
 		setSaldo(getSaldo() + valor);
 		System.out.println("Crédito de " + valor + " realizado na Conta " + getNumero());
 	}
 	
-	public void debitar(float valor) {
+	public void debitar(double valor) {
 		if (getSaldo() >= valor) {
 			setSaldo(getSaldo() - valor);
 			System.out.println("Débito de " + valor + " realizado na Conta " + getNumero());
@@ -32,7 +32,7 @@ public class Conta {
 		}
 	}
 	
-	public void transferir(Conta destino, float valor) {
+	public void transferir(Conta destino, double valor) {
 		if(getSaldo() >= valor) {
 			setSaldo(getSaldo() - valor);
 			destino.setSaldo(destino.getSaldo() + valor);
@@ -47,22 +47,22 @@ public class Conta {
 	public String getNumero() {
 		return this.numero;
 	}
-	public void setNumero(String numero) {
+	private void setNumero(String numero) {
 		this.numero = numero;
 	}
 	
-	public float getSaldo() {
+	public double getSaldo() {
 		 return this.saldo;
 	}
-	public void setSaldo(float saldo) {
+	private void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
 	
-	public String getNome() {
-		return this.nome;
+	public Cliente getCliente() {
+		return this.cliente;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	private void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 	
 }
